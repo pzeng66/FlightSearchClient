@@ -1,0 +1,24 @@
+<form (ngSubmit)="clickSubmit()" [formGroup]="searchForm">
+<div class="flight-tab">
+    
+    <div class="persent-one">
+         <input type="text" name="origin" class="textboxstyle" id="origin" formControlName="origin" placeholder="From City ">
+    </div>
+    <div class="persent-one">
+         <input type="text" name="destination" class="textboxstyle" id="destination" formControlName="destination" placeholder="To City ">
+    </div>
+    <div class="persent-one less-per">
+      <input type="date" name="date" class="textboxstyle" id="date" formControlName="date" placeholder="Date">
+    </div>
+    <!-- <div class="persent-one less-per">
+      <input type="date" name="arrival" class="textboxstyle" id="arrival" formControlName="arrival" placeholder="Returrn">
+    </div> -->
+    <div class="persent-one">
+        <input type="text" placeholder="Flight Number" class="textboxstyle" formControlName="flightNumber" id="flightNumber">
+     </div>
+    <div >
+       <input type="Submit" name="submit" value="Search" class="submit" id="srch">
+    </div>
+    
+ </div>
+ </form>

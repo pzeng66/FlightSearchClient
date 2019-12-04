@@ -1,0 +1,35 @@
+.flight-tab .textboxstyle {
+    width: 100%;
+    float: left;
+    color: #191919;
+    padding: 8px 10px 8px 35px;
+    border: none;
+    border-radius: 3px;
+    background: #f5f5f5;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.flight-tab{
+width: 100vw;
+background: rgba(0, 130, 185, .8);
+height:100px;
+display:flex;
+flex-direction: row;
+justify-content: space-around;
+align-items: center;
+}
+.persent-one {
+    width: 13%;
+    
+}
+
+.persent-one.less-per {
+    width: 14%;
+}
+
+.submit {
+    width: 100px;
+    font-size: 50px;
+   padding:20px;
+}
