@@ -22,3 +22,26 @@
     
  </div>
  </form>
+
+ <div class="error-section">
+  <div class="error-msg">
+    <div *ngIf= "triggerValidations && searchForm.get('date').errors?.required">
+      Please select Date.
+    </div>
+    <div *ngIf="triggerValidations && searchForm.get('flightNumber').errors?.required">
+        Please enter Flight Number.
+    </div>
+    <div *ngIf="triggerValidations && searchForm.get('origin').errors?.required">
+        Please enter Origin City.
+    </div>
+    <div *ngIf="triggerValidations && searchForm.get('origin').errors?.pattern">
+        Please enter  only alphabets for Origin city.
+    </div>
+    <div *ngIf="triggerValidations && searchForm.get('destination').errors?.required">
+        Please enter Destination City.
+    </div>
+    <div *ngIf="triggerValidations && searchForm.get('destination').errors?.pattern">
+        Please enter  only alphabets for Destination city.
+    </div>
+  </div> 
+ </div>

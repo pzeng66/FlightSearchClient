@@ -1,3 +1,4 @@
+<ng-container *ngIf="flights?.length>0">
 <table class="display-flights">
     <thead>
         <tr>
@@ -10,29 +11,16 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td>1</td>
-            <td>2</td>
-            <td>3</td>
-            <td>4</td>
-            <td>5</td>
-            <td>6</td>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>2</td>
-            <td>3</td>
-            <td>4</td>
-            <td>5</td>
-            <td>6</td>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>2</td>
-            <td>3</td>
-            <td>4</td>
-            <td>5</td>
-            <td>6</td>
-        </tr>
+        <ng-container *ngFor="let item of flights">
+                <tr>
+                        <td>{{item.flightNumber}}</td>
+                        <td>{{item.origin}}</td>
+                        <td>{{item.departure | date:'short'}}</td>
+                        <td>{{item.destination}}</td>
+                        <td>{{item.arrival | date:'short'}}</td>
+                        <td>{{item.carrier}}</td>
+                    </tr>
+        </ng-container>
     </tbody>
 </table>
+</ng-container>

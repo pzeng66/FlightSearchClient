@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FlightService } from '../flight.service';
+import { Flights} from '../flights';
 
 @Component({
   selector: 'app-flight',
@@ -7,9 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FlightComponent implements OnInit {
 
-  constructor() { }
+  flightList;
+  constructor(private service:FlightService) { }
 
   ngOnInit() {
   }
+
+  searchDetails(formData){
+    this.service.search(formData).subscribe((flights)=>{
+      console.log("TCL: FlightSearchComponent -> clickSubmit -> flights", flights)
+      this.flightList = flights;
+      },
+      (err)=>{
+      console.log("TCL: FlightSearchComponent -> clickSubmit -> err", err)
+       });
+  }
+
+  
 
 }
