@@ -23,8 +23,8 @@ export class FlightSearchComponent implements OnInit {
 
     this.searchForm = this.fb.group({
       flightNumber:  ['',[Validators.required]],
-      origin:  ['',[Validators.pattern(/^[a-zA-Z]*$/)]],
-      destination:  ['',[Validators.pattern(/^[a-zA-Z]*$/)]],
+      origin: '',
+      destination: '',
       date: ['',[Validators.required]],
     });
     
@@ -58,37 +58,37 @@ export class FlightSearchComponent implements OnInit {
 }
 
 testOriginDestinations(){
-        this.originCity.valueChanges.pipe(distinctUntilChanged()).subscribe((value)=>{
-            
-          if(this.originCity.pristine){
-            this.destinationCity.clearValidators();
-            this.destinationCity.updateValueAndValidity();
-          }
-          else if((!!value)){
-            this.destinationCity.setValidators(Validators.required);
-            this.destinationCity.updateValueAndValidity();
-          }
-          else{
-            this.destinationCity.clearValidators();
-            this.destinationCity.updateValueAndValidity();
-          }
-        });
+  this.originCity.valueChanges.pipe(distinctUntilChanged()).subscribe((value)=>{
+      
+    if(this.originCity.pristine){
+      this.destinationCity.setValidators(Validators.pattern(/^[a-zA-Z]*$/));
+      this.destinationCity.updateValueAndValidity();
+    }
+    else if((!!value)){
+      this.destinationCity.setValidators([Validators.required,Validators.pattern(/^[a-zA-Z]*$/)]);
+      this.destinationCity.updateValueAndValidity();
+    }
+    else{
+      this.destinationCity.setValidators(Validators.pattern(/^[a-zA-Z]*$/));
+      this.destinationCity.updateValueAndValidity();
+    }
+  });
 
-        this.destinationCity.valueChanges.pipe(distinctUntilChanged()).subscribe((value)=>{
-          
-        if(this.destinationCity.pristine){
-          this.originCity.clearValidators();
-          this.originCity.updateValueAndValidity();
-          }
-          else if((!!value)){
-            this.originCity.setValidators(Validators.required);
-            this.originCity.updateValueAndValidity();
-          }
-        else{
-          this.originCity.clearValidators();
-          this.originCity.updateValueAndValidity();
-        }
-        });
+  this.destinationCity.valueChanges.pipe(distinctUntilChanged()).subscribe((value)=>{
+    
+  if(this.destinationCity.pristine){
+    this.originCity.setValidators(Validators.pattern(/^[a-zA-Z]*$/));
+    this.originCity.updateValueAndValidity();
+    }
+    else if((!!value)){
+      this.originCity.setValidators([Validators.required,Validators.pattern(/^[a-zA-Z]*$/)]);
+      this.originCity.updateValueAndValidity();
+    }
+  else{
+    this.originCity.setValidators(Validators.pattern(/^[a-zA-Z]*$/));
+    this.originCity.updateValueAndValidity();
+  }
+  });
 }
 
 

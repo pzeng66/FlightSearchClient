@@ -28,11 +28,12 @@ align-items: center;
     width: 14%;
 }
 
-.submit {
+#srch {
     width: 100px;
-    font-size: 50px;
-   padding:20px;
+    font-size: 20px;
+   padding:5px;
 }
+
 
 .error-msg{
     color:red;

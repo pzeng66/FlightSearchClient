@@ -18,8 +18,19 @@ export class FlightService {
 
   search(searchCriteria){
     this.flightNumber=searchCriteria['flightNumber'];
+    if(this.flightNumber === null){
+      this.flightNumber = "";
+    }
     this.originCity=searchCriteria['origin'];
+    if(this.originCity === null){
+      this.originCity = "";
+    }
+
     this.destinationCity=searchCriteria['destination'];
+    if(this.destinationCity === null){
+      this.destinationCity = "";
+    }
+
     this.travelDate=searchCriteria['date'];
 
     console.log(this.flightNumber,this.originCity,this.destinationCity,this.travelDate);

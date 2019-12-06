@@ -9,13 +9,21 @@ export class FlightDisplayComponent implements OnInit, OnChanges {
 
   @Input('flights') flights;
 
+  setMsg:boolean;
+
   constructor() { }
 
   ngOnInit() {
+    this.setMsg = false;
   }
 
   ngOnChanges(){
-    console.log(this.flights);
+    if(this.flights.length===0){
+      this.setMsg=true;
+    }else{
+      this.setMsg=false;
+    }
+   
   }
 
 }
